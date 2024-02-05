@@ -1,0 +1,115 @@
+@color-red: red;
+@color-green: greenyellow;
+@color-blue: blue;
+@color-yellow: yellow;
+@color-orange: orange;
+@color-purple: purple;
+@color-teal: teal;
+@color-pink: pink;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: black;
+}
+
+h1, h2 {
+    margin: 1rem;
+    color: @color-blue;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+a {
+    color: @color-green;
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 1rem;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1024px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.box-divisiorias {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.estilo-divisiorias(@classe, @size, @text-color, @b-color) when (@classe = '.box-divisioria-um') {
+    .box-divisioria-um {
+        color: @text-color;
+        padding: 10px;
+        font-size: @size;
+
+        p {
+            color: @text-color;
+
+            b {
+                color: @b-color;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+.estilo-divisiorias(@classe, @size, @text-color, @b-color) when (@classe = '.box-divisioria-dois') {
+    .box-divisioria-dois {
+        color: @text-color;
+        padding: 10px;
+        font-size: @size;
+
+        p {
+            color: @text-color;
+
+            b {
+                color: @b-color;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.estilo-divisiorias(@classe, @size, @text-color, @b-color) when (@classe = '.box-divisioria-tres') {
+    .box-divisioria-tres {
+        color: @text-color;
+        padding: 10px;
+        font-size: @size;
+
+        p {
+            color: @text-color;
+
+            b {
+                color: @b-color;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1024px;
+    box-sizing: border-box;
+    margin: 0 auto;
+
+    .estilo-divisiorias('.box-divisioria-um', 14px, @color-red, @color-blue);
+    .estilo-divisiorias('.box-divisioria-dois', 18px, @color-yellow, @color-green);
+    .estilo-divisiorias('.box-divisioria-tres', 22px, @color-teal, @color-pink);
+}

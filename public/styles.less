@@ -1,0 +1,99 @@
+@cor_azul: blue;
+@cor_cinza_claro: rgb(210, 212, 208);
+@cor-tomato: tomato;
+@cor-preta: black;
+@cor-branca: white;
+@largura: 0.75;
+@tamanho: 23px;
+
+body {
+    background-color: @cor_cinza_claro;
+}
+
+h1 {
+    .cores('h1');
+    padding: 2rem;
+}
+
+p {
+    .cores('p');
+    padding-left: 2rem;
+}
+
+a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid @cor-tomato;
+    border-radius: 1.5rem;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: @cor-preta;
+    color: @cor-branca;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 1rem;
+}
+
+a:hover {
+    background-color: @cor_azul;
+}
+.cores(@tag) {
+    color: @cor_azul * 0.2;
+    & when(@tag = 'p') {
+        font-size: @tamanho * 1.23 ;
+    }
+    & when(@tag = 'h1') {
+        text-shadow: 2px 1px 1px #7a7b7c;
+        font-size: @tamanho * 2.5;
+        // font-size: @tamanho + 27px;
+    }
+}
+/*
+
+.cores(@tamanho, @tag) {
+    color: @cor_azul;
+    font-size: @tamanho;
+
+    & when (@tag = 'h1') {
+        text-shadow: 2px 1px 1px #7a7b7c;
+    }
+    & when (@tag = 'p') {
+        background-color: lightgreen;
+    }
+}
+*/
+// Hierarquia
+/*
+p {
+    width: percentage(@largura);
+    color: if(iscolor(@cor), @cor, @cor2);
+    b {
+        color: @cor2;
+    }
+}
+
+h1 {
+    text-shadow: 2px 1px 1px #7a7b7c;
+    .cores();
+}
+
+
+.cores() {
+    color: @cor;
+    background-color: @cor * 0.2;
+    font-size: 23px;
+}
+
+*/
+/*
+h1 {
+    color: @cor;
+}
+
+p {
+    color: @cor;
+}
+*/
